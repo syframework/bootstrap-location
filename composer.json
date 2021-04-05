@@ -1,0 +1,22 @@
+{
+	"name": "sy/bootstrap-location",
+	"description": "Plugin for adding geolocation feature",
+	"type": "library",
+	"require": {
+		"php": ">=7",
+		"sy/bootstrap": "dev-develop",
+		"geoip2/geoip2": "^2.11"
+	},
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Syone",
+			"email": "syone7@gmail.com"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Sy\\Bootstrap\\": "src/"
+		}
+	}
+}
