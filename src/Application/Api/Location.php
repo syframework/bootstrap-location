@@ -2,7 +2,6 @@
 namespace Sy\Bootstrap\Application\Api;
 
 use Sy\Bootstrap\Component\Api;
-use Sy\Bootstrap\Service\Container;
 
 class Location extends Api {
 
@@ -23,7 +22,7 @@ class Location extends Api {
 	 * Retrieve the country iso code using the client ip address
 	 */
 	public function getAction() {
-		$service = Container::getInstance();
+		$service = \Project\Service\Container::getInstance();
 		echo $service->location->getCountryIsoCode();
 		exit;
 	}
