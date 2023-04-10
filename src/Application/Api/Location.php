@@ -22,7 +22,7 @@ class Location extends Api {
 	 * Retrieve the country iso code using the client ip address
 	 */
 	public function getAction() {
-		$service = Container::getInstance();
+		$service = \Project\Service\Container::getInstance();
 		return $this->ok($service->location->getCountryIsoCode());
 	}
 
