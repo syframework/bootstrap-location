@@ -3,10 +3,19 @@ namespace Sy\Bootstrap\Service;
 
 class Location {
 
+	/**
+	 * @var string
+	 */
 	private $ip;
 
+	/**
+	 * @var \GeoIp2\Model\Country
+	 */
 	private $country;
 
+	/**
+	 * @var \GeoIp2\Model\City
+	 */
 	private $city;
 
 	public function __construct() {
@@ -16,6 +25,9 @@ class Location {
 		$this->ip = $ip;
 	}
 
+	/**
+	 * @return \GeoIp2\Model\Country
+	 */
 	public function getCountry() {
 		if (!isset($this->country)) {
 			$reader = new \GeoIp2\Database\Reader(__DIR__ . '/../../geolite2/GeoLite2-Country.mmdb');
@@ -24,6 +36,9 @@ class Location {
 		return $this->country;
 	}
 
+	/**
+	 * @return \GeoIp2\Model\City
+	 */
 	public function getCity() {
 		if (!isset($this->city)) {
 			$reader = new \GeoIp2\Database\Reader(__DIR__ . '/../../geolite2/GeoLite2-City.mmdb');
@@ -34,8 +49,8 @@ class Location {
 
 	/**
 	 * Return the lat/lng coordinates using client ip address
-	 * 
-	 * @param array $default Default lat/lng coordinates if location can't be found
+	 *
+	 * @param  array $default Default lat/lng coordinates if location can't be found
 	 * @return array
 	 */
 	public function getLatLng(array $default = ['lat' => 48.856869, 'lng' => 2.351477]) {

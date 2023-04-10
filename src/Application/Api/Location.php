@@ -12,10 +12,10 @@ class Location extends Api {
 			$origin = $_SERVER['HTTP_REFERER'];
 		}
 		if (empty($origin)) {
-			$this->forbidden();
+			throw new Api\ForbiddenException('No origin found');
 		}
 		if ($_SERVER['SERVER_NAME'] !== parse_url($origin)['host']) {
-			$this->forbidden();
+			throw new Api\ForbiddenException('Origin denied');
 		}
 	}
 
@@ -24,8 +24,7 @@ class Location extends Api {
 	 */
 	public function getAction() {
 		$service = Container::getInstance();
-		echo $service->location->getCountryIsoCode();
-		exit;
+		return $this->ok($service->location->getCountryIsoCode());
 	}
 
 }
