@@ -2,7 +2,6 @@
 namespace Sy\Bootstrap\Application\Api;
 
 use Sy\Bootstrap\Component\Api;
-use Sy\Bootstrap\Service\Container;
 
 class Location extends Api {
 
