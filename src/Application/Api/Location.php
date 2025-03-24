@@ -23,7 +23,9 @@ class Location extends Api {
 	 */
 	public function getAction() {
 		$service = \Project\Service\Container::getInstance();
-		return $this->ok($service->location->getCountryIsoCode());
+		$code = $service->location->getCountryIsoCode();
+		if (empty($code)) return $this->ok($this->get('default', 'us'));
+		return $this->ok($code);
 	}
 
 }
